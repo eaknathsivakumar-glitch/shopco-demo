@@ -1,7 +1,7 @@
 revolte:
   version: '1.0'
-  project: New Project
-  appName: shopcoapp
+  project: AIcheck
+  appName: prod-app
   config:
     codeReview:
       summarize: true
@@ -33,6 +33,7 @@ revolte:
               BASE_URL: /api/v1
               DATABASE_URL: '#{db.dbConnectionString}'
               PORT: '8080'
+            loadBalancerMode: dedicated
           insights:
             cpu:
               - cpu_time_idle
@@ -70,6 +71,7 @@ revolte:
               DATABASE_USERNAME: '#{db.dbUsername}'
               DATABASE_PASSWORD: '#{db.dbPassword}'
               DATABASE_NAME: '#{db.dbName}'
+            loadBalancerMode: dedicated
           specifications:
             cpu: 2
             memory: 1
@@ -83,7 +85,7 @@ revolte:
             storage: 30
             engine: postgres
     production:
-      branch: main
+      branch: staging
       codeReview: false
       codeQuality: false
       testSuite: false
@@ -102,6 +104,7 @@ revolte:
               DATABASE_USERNAME: '#{db.dbUsername}'
               DATABASE_PASSWORD: '#{db.dbPassword}'
               DATABASE_NAME: '#{db.dbName}'
+            loadBalancerMode: dedicated
           specifications:
             cpu: 2
             memory: 1
@@ -134,6 +137,7 @@ revolte:
               BASE_URL: /api/v1
               DATABASE_URL: '#{db.dbConnectionString}'
               PORT: '8080'
+            loadBalancerMode: dedicated
           insights:
             cpu:
               - cpu_time_idle
