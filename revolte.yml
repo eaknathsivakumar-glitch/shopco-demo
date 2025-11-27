@@ -1,7 +1,7 @@
 revolte:
   version: '1.0'
-  project: AIcheck
-  appName: prod-app
+  project: New Project
+  appName: appcheckapi
   config:
     codeReview:
       summarize: true
