@@ -52,7 +52,7 @@ revolte:
             storage: 30
             engine: postgres
     qa:
-      branch: qa
+      branch: staging
       codeReview: false
       codeQuality: false
       testSuite: false
@@ -71,7 +71,7 @@ revolte:
               DATABASE_USERNAME: '#{db.dbUsername}'
               DATABASE_PASSWORD: '#{db.dbPassword}'
               DATABASE_NAME: '#{db.dbName}'
-            loadBalancerMode: dedicated
+            loadBalancerMode: shared
           specifications:
             cpu: 2
             memory: 1
