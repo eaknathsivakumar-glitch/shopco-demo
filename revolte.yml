@@ -33,7 +33,7 @@ revolte:
               BASE_URL: /api/v1
               DATABASE_URL: '#{db.dbConnectionString}'
               PORT: '8080'
-            loadBalancerMode: dedicated
+            loadBalancerMode: shared
           insights:
             cpu:
               - cpu_time_idle
