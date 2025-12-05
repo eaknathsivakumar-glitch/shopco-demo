@@ -9,7 +9,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
     // 👇 change this before each deployment
-    const deploymentName = "Deployment-A";  
+    const deploymentName = "Deployment-B";  
     const timestamp = new Date().toISOString();
 
     return res.status(200).json({
