@@ -3,11 +3,21 @@ revolte:
   project: Untitled Project
   appName: shopcotest
   config:
+    codeReview:
+      summarize: false
+      suggestFixes: true
+      commentStyle: Balanced
+    codeQuality:
+      codeStyle:
+        rules:
+          javascript/noUnusedVars: warn
     testSuite:
       command: npm run test
   env:
     staging:
       branch: main
+      codeReview: false
+      codeQuality: false
       testSuite: true
       services:
         rid_1:
@@ -41,6 +51,8 @@ revolte:
             engine: postgres
     qa:
       branch: staging
+      codeReview: true
+      codeQuality: true
       testSuite: true
       services:
         rid_1:
@@ -69,6 +81,9 @@ revolte:
             engine: postgres
     production:
       branch: qa
+      codeReview: false
+      codeQuality: false
+      testSuite: false
       services:
         rid_1:
           type: WEB_SERVICE
@@ -99,6 +114,9 @@ revolte:
             storage: 30
             engine: postgres
     preview:
+      codeReview: false
+      codeQuality: false
+      testSuite: false
       services:
         rid_1:
           type: WEB_SERVICE
