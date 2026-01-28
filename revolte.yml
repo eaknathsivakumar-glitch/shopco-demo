@@ -1,7 +1,7 @@
 revolte:
   version: '1.0'
-  project: New Project
-  appName: abctest
+  project: MacBook
+  appName: webservice-app
   config:
     codeReview:
       summarize: false
@@ -67,9 +67,20 @@ revolte:
               BASE_URL: /api/v1
               DATABASE_URL: '#{db.dbConnectionString}'
               PORT: '8080'
+          insights:
+            cpu:
+              - cpu_time_idle
+              - cpu_time_user
+              - cpu_time_system
+            swap:
+              - swap_used
+            disk:
+              - disk_total
+              - disk_used
+              - disk_free
           specifications:
             cpu: 2
-            memory: 1
+            memory: 2
             storage: 30
         rid_2:
           type: DATABASE
@@ -105,6 +116,14 @@ revolte:
               replica:
                 min: 1
                 max: 1
+              utilization:
+                cpu:
+                  target: 70
+                memory:
+                  target: 70
+              behavior:
+                scaleDown:
+                  stabilizationWindow: 300
         rid_2:
           type: DATABASE
           name: db
