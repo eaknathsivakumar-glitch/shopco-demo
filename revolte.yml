@@ -15,7 +15,7 @@ revolte:
       command: npm run test
   env:
     staging:
-      branch: staging
+      branch: main
       codeReview: false
       codeQuality: false
       testSuite: true
@@ -91,7 +91,7 @@ revolte:
             storage: 30
             engine: postgres
     production:
-      branch: main
+      branch: staging
       codeReview: false
       codeQuality: false
       testSuite: false
@@ -108,6 +108,11 @@ revolte:
               BASE_URL: /api/v1
               DATABASE_URL: '#{db.dbConnectionString}'
               PORT: '8080'
+          insights:
+            cpu:
+              - cpu_time_idle
+              - cpu_time_user
+              - cpu_time_system
           specifications:
             cpu: 2
             memory: 1
@@ -115,7 +120,7 @@ revolte:
             autoScaling:
               replica:
                 min: 1
-                max: 1
+                max: 2
               utilization:
                 cpu:
                   target: 70
