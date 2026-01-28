@@ -15,7 +15,7 @@ revolte:
       command: npm run test
   env:
     staging:
-      branch: main
+      branch: staging
       codeReview: false
       codeQuality: false
       testSuite: true
@@ -27,7 +27,7 @@ revolte:
           properties:
             health: /api/health
             port: 8080
-            loadBalancerMode: dedicated
+            loadBalancerMode: shared
             variables:
               BASE_URL: /api/v1
               DATABASE_URL: '#{db.dbConnectionString}'
@@ -50,7 +50,7 @@ revolte:
             storage: 30
             engine: postgres
     qa:
-      branch: staging
+      branch: qa
       codeReview: true
       codeQuality: true
       testSuite: true
@@ -91,7 +91,7 @@ revolte:
             storage: 30
             engine: postgres
     production:
-      branch: qa
+      branch: main
       codeReview: false
       codeQuality: false
       testSuite: false
