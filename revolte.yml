@@ -1,7 +1,7 @@
 revolte:
   version: '1.0'
-  project: sample demo
-  appName: shopco new
+  project: shopCo
+  appName: Ecom app
   config:
     codeReview:
       summarize: true
@@ -9,6 +9,9 @@ revolte:
       commentStyle: Balanced
     testSuite:
       command: npm run test
+  workflow:
+    developerWorkflow:
+      enabled: true
   env:
     staging:
       branch: staging
@@ -20,7 +23,7 @@ revolte:
           name: web_service
           entryPoint: index.js
           properties:
-            health: /health
+            health: /api/health
             port: 8080
             loadBalancerMode: dedicated
             variables:
@@ -29,7 +32,7 @@ revolte:
               DATABASE_PORT: '8080'
           specifications:
             cpu: 2
-            memory: 1
+            memory: 2
             storage: 30
         rid_2:
           type: DATABASE
