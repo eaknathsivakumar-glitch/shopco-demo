@@ -2,21 +2,12 @@ revolte:
   version: '1.0'
   project: shopco Ecom app
   appName: Ecom portal
-  config:
-    codeReview:
-      summarize: true
-      suggestFixes: true
-      commentStyle: Balanced
-    testSuite:
-      command: npm run test
   workflow:
     developerWorkflow:
       enabled: true
   env:
     staging:
       branch: staging
-      codeReview: true
-      testSuite: true
       services:
         rid_1:
           type: WEB_SERVICE
@@ -32,7 +23,7 @@ revolte:
               DATABASE_PORT: '8080'
           specifications:
             cpu: 2
-            memory: 2
+            memory: 4
             storage: 30
         rid_2:
           type: DATABASE
@@ -44,15 +35,13 @@ revolte:
             engine: postgres
     qa:
       branch: qa
-      codeReview: true
-      testSuite: true
       services:
         rid_1:
           type: WEB_SERVICE
           name: web_service
           entryPoint: index.js
           properties:
-            health: /health
+            health: /api/health
             port: 8080
             loadBalancerMode: dedicated
             variables:
@@ -76,15 +65,13 @@ revolte:
             engine: postgres
     production:
       branch: main
-      codeReview: true
-      testSuite: true
       services:
         rid_1:
           type: WEB_SERVICE
           name: web_service
           entryPoint: index.js
           properties:
-            health: /health
+            health: /api/health
             port: 8080
             loadBalancerMode: dedicated
             variables:
@@ -119,15 +106,13 @@ revolte:
             storage: 30
             engine: postgres
     preview:
-      codeReview: true
-      testSuite: true
       services:
         rid_1:
           type: WEB_SERVICE
           name: web_service
           entryPoint: index.js
           properties:
-            health: /health
+            health: /api/health
             port: 8080
             loadBalancerMode: dedicated
             variables:
