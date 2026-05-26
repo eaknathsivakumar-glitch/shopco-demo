@@ -1,7 +1,7 @@
 revolte:
   version: '1.0'
-  project: shopCo
-  appName: Ecom app
+  project: shopco Ecom app
+  appName: Ecom portal
   config:
     codeReview:
       summarize: true

@@ -2,7 +2,7 @@ import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  var a = "test";
+  var a = "testss";
   return twMerge(clsx(inputs));
 }
 
