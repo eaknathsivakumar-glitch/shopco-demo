@@ -1,7 +1,7 @@
 revolte:
   version: '1.0'
-  project: Hopscotch
-  appName: app-new
+  project: shopco Ecom app
+  appName: Ecom portal
   config:
     codeReview:
       summarize: false
@@ -14,6 +14,9 @@ revolte:
           javascript/noUnusedVars: warn
     testSuite:
       command: npm run test
+  workflow:
+    developerWorkflow:
+      enabled: true
   env:
     staging:
       branch: staging
@@ -28,6 +31,7 @@ revolte:
           properties:
             health: /api/health
             port: 8080
+            loadBalancerMode: dedicated
             variables:
               BASE_URL: /api/v1
               DATABASE_URL: '#{db.dbConnectionString}'
@@ -57,6 +61,7 @@ revolte:
           properties:
             health: /api/health
             port: 8080
+            loadBalancerMode: dedicated
             variables:
               BASE_URL: /api/v1
               DATABASE_URL: '#{db.dbUrl}'
@@ -89,6 +94,7 @@ revolte:
           properties:
             health: /api/health
             port: 8080
+            loadBalancerMode: dedicated
             variables:
               BASE_URL: /api/v1
               DATABASE_URL: '#{db.dbUrl}'
@@ -104,6 +110,14 @@ revolte:
               replica:
                 min: 1
                 max: 1
+              utilization:
+                cpu:
+                  target: 70
+                memory:
+                  target: 70
+              behavior:
+                scaleDown:
+                  stabilizationWindow: 300
         rid_2:
           type: DATABASE
           name: db
@@ -124,6 +138,7 @@ revolte:
           properties:
             health: /api/health
             port: 8080
+            loadBalancerMode: dedicated
             variables:
               BASE_URL: /api/v1
               DATABASE_URL: '#{db.dbUrl}'
