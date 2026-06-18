@@ -1,7 +1,7 @@
 revolte:
   version: '1.0'
-  project: shopco Ecom app
-  appName: Ecom portal
+  project: Testing-2
+  appName: test-app
   workflow:
     developerWorkflow:
       enabled: true
